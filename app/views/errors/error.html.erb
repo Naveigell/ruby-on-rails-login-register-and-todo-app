@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag 'css/bootstrap.min' %>
+    <%= stylesheet_link_tag 'css/mdb.min' %>
+    <%= stylesheet_link_tag 'icons/css/fontawesome.min' %>
+    <%= stylesheet_link_tag 'icons/css/all.min' %>
+    <%= stylesheet_link_tag 'icons/css/brands.min' %>
+    <%= stylesheet_link_tag 'icons/css/regular.min' %>
+    <%= stylesheet_link_tag 'icons/css/solid.min' %>
+    <%= stylesheet_link_tag 'icons/css/v4-shims.min' %>
+    <%= stylesheet_link_tag 'error' %>
+</head>
+<body>
+    <div id="notfound">
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1><%= @code %></h1>
+            </div>
+            <h2><%= @message %></h2>
+            <br/>
+            <a href="/login">
+                <span class="arrow"></span>Return To Login Page
+            </a>
+        </div>
+    </div>
+</body>
+</html>

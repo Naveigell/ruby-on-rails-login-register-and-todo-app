@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <%= csrf_meta_tag %>
+  <title>Document</title>
+  <%= stylesheet_link_tag 'css/bootstrap.min' %>
+  <%= stylesheet_link_tag 'css/mdb.min' %>
+  <%= stylesheet_link_tag 'icons/css/fontawesome.min' %>
+  <%= stylesheet_link_tag 'icons/css/all.min' %>
+  <%= stylesheet_link_tag 'icons/css/brands.min' %>
+  <%= stylesheet_link_tag 'icons/css/regular.min' %>
+  <%= stylesheet_link_tag 'icons/css/solid.min' %>
+  <%= stylesheet_link_tag 'icons/css/v4-shims.min' %>
+  <%= stylesheet_link_tag 'loginregister' %>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form-1">
+                <h3>Login Form</h3>
+                <form action="/login" method="post">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <div class="form-group">
+                        <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Your Password *" value="" />
+                    </div>
+                    <% unless flash[:login_error].nil? %>
+                        <% flash[:login_error].each do |value| %>
+                            <div class="form-group">
+                                <div class="alert-danger alert"><%= value %></div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Login" />
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd">Forget Password?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 login-form-2">
+                <h3>Register Form</h3>
+                <form method="post" action="/register">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Your Username *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Your Password *" value="" />
+                    </div>
+                    <% unless flash[:register_error].nil? %>
+                        <% flash[:register_error].each do |value| %>
+                            <div class="form-group">
+                                <div class="alert-danger alert"><%= value %></div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Register" />
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
